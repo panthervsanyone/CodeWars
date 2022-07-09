@@ -1,0 +1,1 @@
+SELECT name, won, lost FROM fighters group by name order by won desc limit 6
