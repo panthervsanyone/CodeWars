@@ -1,16 +1,14 @@
 <?php
 
-function tidyNumber($n) {
-    $split = str_split($n);
-    $result = true;
-    $limit = count($split)-1;
-    for($i = 0; $i <= $limit; $i++) {
-        if($split[$i] > $split[$i+1]) {
-            $result = false;
-            return $result;
+function tidyNumber($n):bool {
+    $splitDefault = str_split($n);
+    $splitForSort = $splitDefault;
+    sort($splitForSort);
+    $countValue = count($splitDefault);
+    for ($i = 0; $i < $countValue; $i++) {
+        if ($splitDefault[$i] != $splitForSort[$i]) {
+            return false;
         }
     }
-    return $result;
+    return  true;
 }
-
-var_dump(tidyNumber(12));
